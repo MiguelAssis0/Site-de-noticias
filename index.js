@@ -12,12 +12,12 @@ let session = require('express-session');
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }));
 
-const dbURI = process.env.MONGODB_URI || 'mongodb+srv://root:xgMqEpBTvqU84bVI@cluster0.p2njhoe.mongodb.net/PortalNtc?retryWrites=true&w=majority&appName=Cluster0';
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }).then(function () {
+
+mongoose.connect('mongodb+srv://root:xgMqEpBTvqU84bVI@cluster0.p2njhoe.mongodb.net/PortalNtc?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true }).then(function () {
     console.log('Conectado ao MongoDB');
 }).catch(function (erro) {
-    console.log(erro.message);
+    console.log('não conectou ao banco');
 })
 
 
