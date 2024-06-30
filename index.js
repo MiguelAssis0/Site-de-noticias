@@ -9,7 +9,6 @@ const app = express();
 const Posts = require('./posts.js');
 
 let session = require('express-session');
-const fileUpload = require('express-fileupload');
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }));
 
@@ -26,7 +25,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.use(fileUpload({
+app.use(fUpload({
     useTempFiles: true,
     tempFileDir: path.join(__dirname, 'temp')
 }));
