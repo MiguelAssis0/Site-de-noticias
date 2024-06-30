@@ -1,0 +1,143 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../fw/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="../public/style.css" rel="stylesheet" />
+
+    <title>Busca</title>
+    <style>
+        body,html{
+            margin: 0;
+            width: 100%;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #eaeaea;
+            min-height: 100%;
+        }
+
+        section{
+            min-height: 100%;
+        }
+
+       .outras-noticias{
+           width: 100%;
+           display: flex;
+           min-height: 100%;
+           padding-top:10px;
+           background-color: #eaeaea; 
+       }
+
+       .noticia-procurada{
+           width: 100%;
+           max-width: 1000px;
+           margin: 20px auto;
+           background-color: white;
+       }
+
+       .noticia-procurada h3{
+           text-align: center;
+           background-color: #008bb4;
+           padding: 10px;
+           margin-bottom: 0;
+           color: white;
+           border-top-left-radius: 10px;
+           border-top-right-radius: 10px;
+           width: 100%;
+       }
+
+       .noticias-encontradas{
+           width: 100%;
+         
+           background-color: white;
+       }
+
+       .noticias-encontradas-single{
+           width: 100%;
+           padding: 20px;
+           display: flex;
+           border-bottom: 1px solid #ccc;
+           align-items: center;
+           background-color: white;
+       }
+
+       .noticias-encontradas-single img{
+           width: 100px;
+           height: 100px;
+           border-radius: 10px;
+       }
+
+       .texto-noticia-single{
+           margin-left: 20px;
+       }
+
+       .texto-noticia-single h4{
+           font-size: 20px;
+       }
+
+       .texto-noticia-single p{
+           font-size: 15px;
+       }
+
+       .texto-noticia-single a{
+           font-size: 15px;
+           text-decoration: none;
+           color: #008bb4;
+       }
+
+       .texto-noticia-single a:hover{
+           color:#008bb4;
+       }
+    </style>
+
+</head>
+<!-- FontAwesome 6.2.0 CSS -->
+
+
+<body>
+    <%- include('partials/header.html') %>
+
+
+<section>
+    
+                    <h2 style="text-align: center;">Busca:</h2>
+    
+                    <div class="noticia-procurada" style="width: 100%;">
+                        <h3>
+                            <%= contagem %> resultados
+                        </h3>
+                        <div class="noticias-encontradas">
+                            <% for(let i=0; i < posts.length; i++){ %>
+                                <div class="noticias-encontradas-single">
+                                    <img src="<%= posts[i].imagem %> ">
+                                    <div class="texto-noticia-single">
+                                        <h4>
+                                            <%= posts[i].titulo %>
+                                        </h4>
+                                        <p><%- posts[i].descSmall %>...</p>
+                                        <a href="<%= posts[i].slug %>">Ler mais <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+    
+                                <% } %>
+    
+                        </div>
+    
+                    </div>
+    
+</section>
+
+        <%- include('partials/footer.html') %>
+</body>
+
+</html>

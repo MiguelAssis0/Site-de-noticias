@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Notícias</title>
+    <style>
+        body,html{
+            margin: 0;
+            width: 100%;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #eaeaea;
+            min-height: 100%;
+        }
+
+        .ntc{
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            background-color: #eaeaea;
+            flex-wrap: wrap;
+       
+        }
+
+        .mais-lidas{
+            width: 39%;
+            margin: 10px;
+     
+        }
+
+        .noticia-single{
+            width: 59%;
+            margin: 10px;
+            background-color: white;;
+            padding: 20px;
+        }
+
+        .noticia-single h2{
+            margin-bottom: 10px;
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+
+        .autor-nome{
+            margin-bottom: 10px;
+        }
+
+        .noticia-single img{
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .noticia-single p{
+            margin-bottom: 10px;
+            text-align: justify;
+            line-height: 25px;
+
+        }
+
+        @media screen and (max-width: 821px) {
+            .noticia-single{
+                width: 100%;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('partials/header.html') %>
+
+        <section class="ntc">
+           
+                <div class="noticia-single">
+                    <h2>
+                        <%= noticia.titulo %>
+                    </h2>
+                    <div class="autor-nome">
+                        <span>Por: <%= noticia.autor %></span>
+                    </div>
+                    <img src="<%= noticia.imagem %>" alt="">
+                    <p><%= noticia.conteudo %></p>
+                </div>
+            </div>
+            <div class="mais-lidas">
+                <h3>Mais lidas</h3>
+                <div class="mais-lidas-noticias">
+                    <% for(let i = 0; i < maisVistos.length; i++){ %>
+                    <div class="mais-lida-noticia-single">
+                        <img src="<%= maisVistos[i].imagem %> ">
+                        <div class="texto-mais-lida-single">
+                            <h4><%= maisVistos[i].titulo %></h4>
+                            <p><%= maisVistos[i].descSmall %>...</p>
+                            <a href="<%= maisVistos[i].slug %>">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+            
+                    <% } %>
+                </div>
+            </div>
+      
+        </section>
+
+        
+
+        <%- include('partials/footer.html') %>
+</body>
+
+</html>

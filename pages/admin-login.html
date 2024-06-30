@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, #0aacdc, rgb(0, 96, 213));
+            
+        }
+
+        form{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            
+            padding: 20px;
+            border: 2px solid black;
+            font-family:'Courier New', Courier, monospace;
+            
+            height:400px;
+            width: 300px;
+            z-index: 2;
+        }
+
+        form h1{
+            margin-bottom: 50px;
+        }
+
+        input{
+            padding: 5px;
+            margin-top:5px;
+            margin-bottom: 30px;
+        }
+
+    
+
+        input[type="submit"]{
+            width: 50%;
+            padding: 8px;
+            cursor: pointer;
+            background-color: #0aacdc;
+            color: white;
+            margin-top:50px;
+        }
+
+        input[type="submit"]:hover{
+            background-color: #0a8acd;
+        }
+
+        div{
+            width: 100%;
+            height: 100%;
+            filter: blur(30px);
+            position:fixed;
+            background-image: linear-gradient(to bottom, #0aacdc, rgb(0, 96, 213));
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <form action="" method="post">
+        <h1>Login</h1>
+        <label for="login">Usuario: </label><input type="text" name="login">
+        <label for="senha">Senha: </label><input type="password" name="senha">
+        <input type="submit" value="Entrar" name="acao">
+    </form>
+</body>
+</html>

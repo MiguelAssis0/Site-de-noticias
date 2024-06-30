@@ -1,0 +1,16 @@
+<div class="mais-lidas">
+    <h3>Mais lidas</h3>
+    <div class="mais-lidas-noticias">
+        <% for(let i = 0; i < maisVistos.length; i++){ %>
+        <div class="mais-lida-noticia-single">
+            <img src="<%= maisVistos[i].imagem %> ">
+            <div class="texto-mais-lida-single">
+                <h4><%= maisVistos[i].titulo %></h4>
+                <p><%- maisVistos[i].descSmall %>...</p>
+                <a href="/encarar-o-surf">Ler mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <% } %>
+    </div>
+</div>
