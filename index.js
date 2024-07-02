@@ -13,7 +13,7 @@ app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }));
 app.use((req, res, next) => {
     const clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     next();
-  });
+});
 
 mongoose.connect(uri).then(function () {
     console.log('Conectado ao MongoDB');
@@ -135,16 +135,21 @@ app.post('/admin/login', (req, res) => {
 
 app.post('/admin/cadastro', (req, res) => {
 
-  
-    Posts.create({
-        titulo: req.body.titulo,
-        conteudo: req.body.noticia,
-        imagem: req.body.imagem,
-        slug: req.body.slug,
-        categoria: req.body.categoria,
-        autor: req.body.autor,
-        views: 0
-    })
+    if (req.body.titulo == null || req.body.noticia == null || req.body.imagem == null || req.body.slug == null || req.body.categoria == null || req.body.autor == null) {
+        
+        res.redirect('/admin/login');
+        return;
+    } else {
+        Posts.create({
+            titulo: req.body.titulo,
+            conteudo: req.body.noticia,
+            imagem: req.body.imagem,
+            slug: req.body.slug,
+            categoria: req.body.categoria,
+            autor: req.body.autor,
+            views: 0
+        })
+    }
 
     res.redirect('/admin/login');
 })
