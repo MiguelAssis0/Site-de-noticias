@@ -82,32 +82,7 @@
             
         }
 
-        
-    input[type="file"] {
-    display: none;
-}
-label {
-    padding: 10px;
-    width: 150px;
-    background-color: #ccc;
-    margin:10px;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
 
-label:hover{
-    transition: .5s;
-    background-color: #0aacdc;
-    color: white;
-}
     </style>
 </head>
 <body>
@@ -118,9 +93,7 @@ label:hover{
     <form enctype="multipart/form-data" action="/admin/cadastro" method="post">
         <input type="text" name="titulo" id="" placeholder="Título da notícia...">
         <input type="text" name="autor" id="" placeholder="Autor da noticia...">
-        <input type="text" name="slug" id="" placeholder="Slug da noticia...">
-        <label for="arquivo">Selecionar Imagem</label>
-        <input type="file" name="arquivo" id="arquivo">
+        <input type="text" name="imagem" id="" placeholder="insira o link da imagem...">
         <input type="text" name="categoria" id="" placeholder="Categoria da noticia...">
         <textarea name="noticia" placeholder="Notícia..." id="" cols="30" rows="10"></textarea>
         <input type="submit" value="cadastrar" name="acao">

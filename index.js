@@ -148,20 +148,11 @@ app.post('/admin/login', (req, res) => {
 
 app.post('/admin/cadastro', (req, res) => {
 
-    let formato = req.files.arquivo.name.split('.');
-    var imagem = "";
-
-    if (formato[formato.length - 1] == "jpg" || formato[formato.length - 1] == "png" || formato[formato.length - 1] == "jpeg") {
-        imagem = new Date().getTime() + '.' + formato;
-        req.files.arquivo.mv(__dirname + '/public/images/' + imagem);
-    } else {
-        fs.unlinkSync(req.files.arquivo.tempFilePath);
-    }
-
+  
     Posts.create({
         titulo: req.body.titulo,
         conteudo: req.body.noticia,
-        imagem: req.body.arquivo,
+        imagem: req.body.imagem,
         slug: req.body.slug,
         categoria: req.body.categoria,
         autor: req.body.autor,
