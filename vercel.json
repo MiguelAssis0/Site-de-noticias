@@ -1,5 +1,11 @@
 {
     "version": 2,
+    "env": {
+        "PORT": {
+            "description": "Porta do Servidor",
+            "value": "3000"
+        }
+    },
     "builds": [
         {
             "src": "index.js",
