@@ -1,11 +1,7 @@
 {
     "version": 2,
     "name": "projetoportalntc",
-    "env": {
-        "PORT": {
-            "value": 3000
-        }
-    },
+    "start": "node index.js",
 
     "builds": [
         {
