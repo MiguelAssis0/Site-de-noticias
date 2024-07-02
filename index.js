@@ -12,7 +12,6 @@ app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }));
 
 app.use((req, res, next) => {
     const clientIP = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    console.log(`Nova conexão de IP: ${clientIP}`);
     next();
   });
 
