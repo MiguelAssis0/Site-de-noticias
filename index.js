@@ -35,7 +35,9 @@ app.use(bodyParser.urlencoded({
 
 app.use(fileUpload({
     useTempFiles: true,
-    tempFileDir: path.join(__dirname, 'temp')
+    tempFileDir: path.join(__dirname, 'temp'),
+    limits: { fileSize: 5 * 1024 * 1024 },
+    abortOnLimit: true
 }));
 
 app.engine('html', require('ejs').renderFile);
@@ -159,7 +161,7 @@ app.post('/admin/cadastro', (req, res) => {
     Posts.create({
         titulo: req.body.titulo,
         conteudo: req.body.noticia,
-        imagem: 'http://localhost:3000/public/images/' + imagem,
+        imagem: req.body.arquivo,
         slug: req.body.slug,
         categoria: req.body.categoria,
         autor: req.body.autor,
