@@ -5,18 +5,21 @@ const bodyParser = require('body-parser');
 const fUpload = require('express-fileupload');
 const fs = require('fs');
 const app = express();
-
+require('dotenv').config();
 const Posts = require('./posts.js');
 
 let session = require('express-session');
+const fileUpload = require('express-fileupload');
+
+const uri = process.env.MONGO_URI;
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }));
 
 
-mongoose.connect('mongodb+srv://root:xgMqEpBTvqU84bVI@cluster0.p2njhoe.mongodb.net/PortalNtc?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true }).then(function () {
+mongoose.connect(uri).then(function () {
     console.log('Conectado ao MongoDB');
 }).catch(function (erro) {
-    console.log('não conectou ao banco');
+    console.log(erro.message);
 })
 
 
@@ -25,7 +28,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-app.use(fUpload({
+app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: path.join(__dirname, 'temp')
 }));
@@ -186,8 +189,7 @@ app.get('/admin/login', (req, res) => {
 })
 
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+
+app.listen(3000, () => { })
 
