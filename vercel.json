@@ -1,9 +1,11 @@
 {
     "version": 2,
     "name": "projetoportalntc",
-
-    
-    "cleanUrls": true,
+    "env": {
+        "PORT": {
+            "value": 3000
+        }
+    },
 
     "builds": [
         {
