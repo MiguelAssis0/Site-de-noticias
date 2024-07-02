@@ -5,7 +5,7 @@
     "functions": {
         "api/*": {
           "memory": 512, 
-          "maxDuration": 30 
+          "maxDuration": 120 
         }
     }
 }
