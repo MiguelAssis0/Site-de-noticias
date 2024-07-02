@@ -2,15 +2,10 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const fUpload = require('express-fileupload');
-const fs = require('fs');
 const app = express();
 require('dotenv').config();
 const Posts = require('./posts.js');
-
 let session = require('express-session');
-const fileUpload = require('express-fileupload');
-
 const uri = process.env.MONGO_URI;
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 } }));
@@ -32,13 +27,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-
-app.use(fileUpload({
-    useTempFiles: true,
-    tempFileDir: path.join(__dirname, 'temp'),
-    limits: { fileSize: 5 * 1024 * 1024 },
-    abortOnLimit: true
-}));
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
