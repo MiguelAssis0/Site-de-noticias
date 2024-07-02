@@ -1,11 +1,10 @@
 {
     "version": 2,
-    "env": {
-        "PORT": {
-            "description": "Porta do Servidor",
-            "value": "3000"
-        }
-    },
+    "name": "projetoportalntc",
+
+    
+    "cleanUrls": true,
+
     "builds": [
         {
             "src": "index.js",
