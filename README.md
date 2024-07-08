@@ -8,4 +8,6 @@ senha: 123456
 
 na aba administrador será possível adicionar uma nova notícia ou deletar notícias existência
 
-aprendizagem: com esse projeto consegui aprender conceitos sobre sites dinâmicos, crud, validação de formulários e estrutura de código das tecnologias utilizadas.
+aprendizagem: com esse projeto consegui aprender conceitos sobre sites dinâmicos, sistema de pesquias, ejs, crud, validação de formulários e estrutura de código das tecnologias utilizadas.
+
+Link do projeto no ar: https://site-de-noticias-alpha.vercel.app
